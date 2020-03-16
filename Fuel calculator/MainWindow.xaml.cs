@@ -21,7 +21,7 @@ namespace Fuel_calculator
             }
 
             CarSelector.SelectedIndex = 0;
-            FeulTankCapacity.Text = CarInfo.GetCarFeulFromCarEnum(CarInfo.GetCarFromCarName(CarSelector.Text)).ToString(CultureInfo.InvariantCulture);
+            FuelTankCapacity.Text = CarInfo.GetCarFeulFromCarEnum(CarInfo.GetCarFromCarName(CarSelector.Text)).ToString(CultureInfo.InvariantCulture);
         }
 
 
@@ -117,13 +117,13 @@ namespace Fuel_calculator
         }
         private void FuelTankCapacityChanged(Object sender, TextChangedEventArgs e)
         {
-            if (IsNumber(FeulTankCapacity.Text, out _fuelTankCapacity)) ; 
+            if (IsNumber(FuelTankCapacity.Text, out _fuelTankCapacity)) ; 
             UpdateElements();
         }
         private void CarSelector_OnSelectionChanged(Object sender, SelectionChangedEventArgs e)
         {
             // Activates the Update elements from FuelTankCapacityChanged()
-            FeulTankCapacity.Text = CarInfo.GetCarFuelFromCarName(e.AddedItems[0].ToString()).ToString(CultureInfo.InvariantCulture);
+            FuelTankCapacity.Text = CarInfo.GetCarFuelFromCarName(e.AddedItems[0].ToString()).ToString(CultureInfo.InvariantCulture);
         }
 
         // Utilities
