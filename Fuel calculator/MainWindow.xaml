@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="Fuel Calculator" Height="450" Width="800" SizeToContent="WidthAndHeight" WindowStyle="ThreeDBorderWindow" Icon="Logo.png">
     <Grid Margin="-2,0,1.6,0" Background="LightGray">
+        Title="Fuel Calculator" Height="450" Width="800" SizeToContent="WidthAndHeight" WindowStyle="ThreeDBorderWindow" Icon="Logo.png" SizeChanged="Window_SizeChanged">
+    <Grid Name="MainGrid" Margin="-2,0,1.6,0" Background="LightGray">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"></ColumnDefinition>
             <ColumnDefinition Width="Auto" MinWidth="30"></ColumnDefinition>
