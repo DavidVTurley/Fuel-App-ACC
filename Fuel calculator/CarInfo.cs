@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Feul_calculator
+namespace Fuel_calculator
 {
     public static class CarInfo
     {

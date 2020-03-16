@@ -25,24 +25,24 @@
             <RowDefinition Height="25"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Label Grid.Column="0" Grid.Row="0">Total Race Time:</Label>
+        <Label Grid.Column="0" Grid.Row="0" Content="Total Race Time"/>
         <TextBox Grid.Column="1" Grid.Row="0" Width="30" Name="TotalRaceTimeHours"  TextChanged="TotalRaceTime_TextChanged"></TextBox>
         <Label Grid.Column="2" Grid.Row="0">H</Label>
         <TextBox Grid.Column="3" Grid.Row="0" Width="30" Name="TotalRaceTimeMinutes"  TextChanged="TotalRaceTime_TextChanged"></TextBox>
         <Label Grid.Column="4" Grid.Row="0">M</Label>
 
 
-        <Label Grid.Column="0" Grid.Row="1">Average lap time:</Label>
+        <Label Grid.Column="0" Grid.Row="1" Content="Average lap time"/>
         <TextBox Grid.Column="1" Grid.Row="1" Width="30" Name="AverageLapTimeMinutes"  TextChanged="AverageLapTime_TextChanged"></TextBox>
         <Label Grid.Column="2" Grid.Row="1">M</Label>
         <TextBox Grid.Column="3" Grid.Row="1" Width="30" Name="AverageLapTimeSeconds"  TextChanged="AverageLapTime_TextChanged"></TextBox>
         <Label Grid.Column="4" Grid.Row="1">S</Label>
 
-        <Label Grid.Column="0" Grid.Row="2" >Feul Per Lap</Label>
+        <Label Grid.Column="0" Grid.Row="2" Content="Fuel Per Lap" />
         <TextBox Grid.Column="1" Grid.Row="2" Name="FeulPerLap" Width="30"  TextChanged="FuelPerLap_TextChanged"></TextBox>
         <Label Grid.Column="2" Grid.Row="2"  >Liters</Label>
 
-        <Label Grid.Column="0" Grid.Row="3">Feul Tank Capacity</Label>
+        <Label Grid.Column="0" Grid.Row="3" Content="Fuel Tank Capacity"/>
         <TextBox Grid.Column="1" Grid.Row="3" Name="FeulTankCapacity" Width="30" TextChanged="FuelTankCapacityChanged" ></TextBox>
         <ComboBox Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="3" Name="CarSelector" SelectionChanged="CarSelector_OnSelectionChanged" HorizontalAlignment="Right" Margin="0,0.2,0,0.4" Width="173" />
 
@@ -50,7 +50,7 @@
         <Label Grid.Column="1" Grid.Row="4" FontWeight="Bold" Name="TotalLaps">0</Label>
         <Label Grid.Column="2" Grid.Row="4" FontWeight="Bold" >Laps</Label>
 
-        <Label Grid.Column="0" Grid.Row="5" FontWeight="Bold">Laps till pitstop</Label>
+        <Label Grid.Column="0" Grid.Row="5" FontWeight="Bold">Laps Per Pitstop</Label>
         <Label Grid.Column="1" Grid.Row="5" FontWeight="Bold" Name="LapsTillPitstop">0</Label>
         <Label Grid.Column="2" Grid.Row="5" FontWeight="Bold" >Laps</Label>
 
