@@ -135,7 +135,5 @@ namespace Fuel_calculator
         {
             return Single.TryParse(value, out number);
         }
-
-        
     }
 }
