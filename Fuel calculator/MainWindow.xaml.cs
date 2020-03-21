@@ -34,7 +34,7 @@ namespace Fuel_calculator
             }
 
             CarSelector.SelectedIndex = 0;
-            FuelTankCapacity.Text = CarInfo.GetCarFeulFromCarEnum(CarInfo.GetCarFromCarName(CarSelector.Text)).ToString(CultureInfo.InvariantCulture);
+            FuelTankCapacity.Text = CarInfo.GetCarFuelFromCarEnum(CarInfo.GetCarFromCarName(CarSelector.Text)).ToString();
            
             SettingsSaveFilePath = Directory.GetCurrentDirectory() + "\\SavedSettings.txt";
 
@@ -43,13 +43,16 @@ namespace Fuel_calculator
             {
                 Settings setting = Xml_deserializer.Xml.Deserialize<Settings>(SettingsSaveFilePath);
 
-                TotalRaceTimeHours.Text = Math.DivRem(setting.TotalRaceTime, 3600, out Int32 raceMinutes).ToString(CultureInfo.InvariantCulture);
-                TotalRaceTimeMinutes.Text = raceMinutes.ToString(CultureInfo.InvariantCulture);
+                    TotalRaceTimeHours.Text = Math.DivRem(setting.TotalRaceTime, 3600, out Int32 raceMinutes)
+                        .ToString();
+                    TotalRaceTimeMinutes.Text = raceMinutes.ToString();
 
-                AverageLapTimeMinutes.Text = Math.DivRem(setting.AverageLapTime, 60, out Int32 averageLapTimeSeconds).ToString(CultureInfo.InvariantCulture);
-                AverageLapTimeSeconds.Text = averageLapTimeSeconds.ToString(CultureInfo.InvariantCulture);
+                    AverageLapTimeMinutes.Text =
+                        Math.DivRem(setting.AverageLapTime, 60, out Int32 averageLapTimeSeconds)
+                            .ToString();
+                    AverageLapTimeSeconds.Text = averageLapTimeSeconds.ToString();
 
-                FuelPerLap.Text = setting.FuelPerLap.ToString(CultureInfo.InvariantCulture);
+                    FuelPerLap.Text = setting.FuelPerLap.ToString();
 
                 CarSelector.SelectedIndex = setting.Car;
             }
@@ -127,7 +130,7 @@ namespace Fuel_calculator
             {
                 if (Single.TryParse(FuelPerLap.Text, out Single fuelPerLap))
                 {
-                    _fuelPerLap = Decimal.Parse(fuelPerLap.ToString(CultureInfo.InvariantCulture));
+                    _fuelPerLap = Decimal.Parse(fuelPerLap.ToString());
                     TotalFeulNeeded.Content = Int32.Parse(TotalLaps.Content.ToString()) * _fuelPerLap;
                 }
             }
@@ -143,7 +146,7 @@ namespace Fuel_calculator
         {
             // Activates the Update elements from FuelTankCapacityChanged()
             _car = CarInfo.GetCarFromCarName(e.AddedItems[0].ToString());
-            FuelTankCapacity.Text = CarInfo.GetCarFuelFromCarName(e.AddedItems[0].ToString()).ToString(CultureInfo.InvariantCulture);
+            FuelTankCapacity.Text = CarInfo.GetCarFuelFromCarName(e.AddedItems[0].ToString()).ToString();
         }
 
         // Utilities
