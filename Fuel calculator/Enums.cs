@@ -143,7 +143,16 @@ namespace Fuel_calculator
         }
         public static Track GetTrackEnum(String trackName)
         {
-            return (from value in TrackNames where trackName == value.Value select value.Key).FirstOrDefault();
+            foreach (KeyValuePair<Track, String> value in TrackNames)
+            {
+                if (trackName == value.Value)
+                {
+                    Track track = value.Key;
+                    return track;
+                }
+            }
+
+            return Track.Monza;
         }
     }
 }
