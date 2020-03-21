@@ -25,8 +25,6 @@ namespace Fuel_calculator
 
         private static String SettingsSaveFilePath;
 
-
-
         public MainWindow()
         {
             InitializeComponent();

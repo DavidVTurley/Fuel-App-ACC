@@ -53,7 +53,7 @@
             <Label Grid.Column="2" Grid.Row="4" FontWeight="Bold">Laps</Label>
             <Button Grid.Column="4" Grid.Row="4" Click="OnSaveClick">Save as default</Button>
 
-            <Label Grid.Column="0" Grid.Row="5" FontWeight="Bold">Laps Per Pitstop</Label>
+            <Label Grid.Column="0" Grid.Row="5" FontWeight="Bold" Content="Max Stint Length"/>
             <Label Grid.Column="1" Grid.Row="5" FontWeight="Bold" Name="LapsTillPitstop">0</Label>
             <Label Grid.Column="2" Grid.Row="5" FontWeight="Bold">Laps</Label>
 
