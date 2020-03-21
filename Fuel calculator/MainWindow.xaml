@@ -17,49 +17,54 @@
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <Label Grid.Column="0" Grid.Row="0" Content="Total Race Time" />
-            <TextBox Grid.Column="1" Grid.Row="0" Name="TotalRaceTimeHours" TextChanged="TotalRaceTime_TextChanged"></TextBox>
-            <Label Grid.Column="2" Grid.Row="0">H</Label>
-            <TextBox Grid.Column="3" Grid.Row="0" Name="TotalRaceTimeMinutes" TextChanged="TotalRaceTime_TextChanged"></TextBox>
-            <Label Grid.Column="4" Grid.Row="0">M</Label>
+            <Label Grid.Column="0" Grid.Row="0" Content="Track" FontWeight="Bold"></Label>
+            <ComboBox Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="0" Name="TrackSelector" SelectionChanged="TrackSelector_SelectionChanged"/>
 
 
-            <Label Grid.Column="0" Grid.Row="1" Content="Average lap time" />
-            <TextBox Grid.Column="1" Grid.Row="1" Name="AverageLapTimeMinutes" TextChanged="AverageLapTime_TextChanged"></TextBox>
-            <Label Grid.Column="2" Grid.Row="1">M</Label>
-            <TextBox Grid.Column="3" Grid.Row="1" Name="AverageLapTimeSeconds" TextChanged="AverageLapTime_TextChanged"></TextBox>
-            <Label Grid.Column="4" Grid.Row="1">S</Label>
+            <Label Grid.Column="0" Grid.Row="1" Content="Total Race Time" />
+            <TextBox Grid.Column="1" Grid.Row="1" Name="TotalRaceTimeHours" TextChanged="TotalRaceTime_TextChanged"></TextBox>
+            <Label Grid.Column="2" Grid.Row="1">H</Label>
+            <TextBox Grid.Column="3" Grid.Row="1" Name="TotalRaceTimeMinutes" TextChanged="TotalRaceTime_TextChanged"></TextBox>
+            <Label Grid.Column="4" Grid.Row="1">M</Label>
 
-            <Label Grid.Column="0" Grid.Row="2" Content="Fuel Per Lap" />
-            <TextBox Grid.Column="1" Grid.Row="2" Name="FuelPerLap" TextChanged="FuelPerLap_TextChanged"></TextBox>
-            <Label Grid.Column="2" Grid.Row="2">Liters</Label>
 
-            <Label Grid.Column="0" Grid.Row="3" Content="Fuel Tank Capacity" />
-            <TextBox Grid.Column="1" Grid.Row="3" Name="FuelTankCapacity" TextChanged="FuelTankCapacityChanged"></TextBox>
-            <ComboBox Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="3" Name="CarSelector"
+            <Label Grid.Column="0" Grid.Row="2" Content="Average lap time" />
+            <TextBox Grid.Column="1" Grid.Row="2" Name="AverageLapTimeMinutes" TextChanged="AverageLapTime_TextChanged"></TextBox>
+            <Label Grid.Column="2" Grid.Row="2">M</Label>
+            <TextBox Grid.Column="3" Grid.Row="2" Name="AverageLapTimeSeconds" TextChanged="AverageLapTime_TextChanged"></TextBox>
+            <Label Grid.Column="4" Grid.Row="2">S</Label>
+
+            <Label Grid.Column="0" Grid.Row="3" Content="Fuel Per Lap" />
+            <TextBox Grid.Column="1" Grid.Row="3" Name="FuelPerLap" TextChanged="FuelPerLap_TextChanged"></TextBox>
+            <Label Grid.Column="2" Grid.Row="3">Liters</Label>
+
+            <Label Grid.Column="0" Grid.Row="4" Content="Fuel Tank Capacity" />
+            <TextBox Grid.Column="1" Grid.Row="4" Name="FuelTankCapacity" TextChanged="FuelTankCapacityChanged"></TextBox>
+            <ComboBox Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="4" Name="CarSelector"
                       SelectionChanged="CarSelector_OnSelectionChanged" HorizontalAlignment="Right" Width="175" />
 
-            <Label Grid.Column="0" Grid.Row="4" FontWeight="Bold">Total laps:</Label>
-            <Label Grid.Column="1" Grid.Row="4" FontWeight="Bold" Name="TotalLaps">0</Label>
-            <Label Grid.Column="2" Grid.Row="4" FontWeight="Bold">Laps</Label>
-            <Button Grid.Column="4" Grid.Row="4" Click="OnSaveClick">Save as default</Button>
-
-            <Label Grid.Column="0" Grid.Row="5" FontWeight="Bold" Content="Max Stint Length"/>
-            <Label Grid.Column="1" Grid.Row="5" FontWeight="Bold" Name="LapsTillPitstop">0</Label>
+            <Label Grid.Column="0" Grid.Row="5" FontWeight="Bold">Total laps:</Label>
+            <Label Grid.Column="1" Grid.Row="5" FontWeight="Bold" Name="TotalLaps">0</Label>
             <Label Grid.Column="2" Grid.Row="5" FontWeight="Bold">Laps</Label>
+            <Button Grid.Column="4" Grid.Row="5" Click="OnSaveClick">Save as default</Button>
 
-            <Label Grid.Column="0" Grid.Row="6" FontWeight="Bold">Total Fuel Needed:</Label>
-            <Label Grid.Column="1" Grid.Row="6" Name="TotalFeulNeeded" FontWeight="Bold">0</Label>
-            <Label Grid.Column="2" Grid.Row="6" FontWeight="Bold">Liters</Label>
+            <Label Grid.Column="0" Grid.Row="6" FontWeight="Bold" Content="Max Stint Length"/>
+            <Label Grid.Column="1" Grid.Row="6" FontWeight="Bold" Name="LapsTillPitstop">0</Label>
+            <Label Grid.Column="2" Grid.Row="6" FontWeight="Bold">Laps</Label>
+
+            <Label Grid.Column="0" Grid.Row="7" FontWeight="Bold">Total Fuel Needed:</Label>
+            <Label Grid.Column="1" Grid.Row="7" Name="TotalFeulNeeded" FontWeight="Bold">0</Label>
+            <Label Grid.Column="2" Grid.Row="7" FontWeight="Bold">Liters</Label>
         </Grid>
     </Viewbox>
 </Window>

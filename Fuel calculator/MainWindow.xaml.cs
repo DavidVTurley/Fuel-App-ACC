@@ -5,7 +5,10 @@ using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using Xml_deserializer.Xml_Objects;
+using System.Xml;
+using Fuel_calculator.Annotations;
+using Fuel_calculator.Xml;
+using Fuel_calculator.Xml.Fuel_calculator.Xml;
 
 namespace Fuel_calculator
 {
@@ -21,43 +24,76 @@ namespace Fuel_calculator
         private Int32 _averageLapTime;
         private Decimal _fuelPerLap;
         private Int32 _fuelTankCapacity;
-        private CarInfo.Car _car;
+        private Enums.Car _car;
+        private Enums.Track _track;
 
-        private static String SettingsSaveFilePath;
+        private static String _settingsSaveFilePath;
 
         public MainWindow()
         {
             InitializeComponent();
-            foreach (KeyValuePair<CarInfo.Car, (String, Int32)> carFuelAmount in CarInfo.CarFuelAmounts.Where(carFuelAmount => carFuelAmount.Key != CarInfo.Car.Empty))
+            foreach (KeyValuePair<Enums.Car, (String car, Int32 fuel)> carFuelAmount in Enums.CarFuelAmounts.Where(carFuelAmount => carFuelAmount.Key != Enums.Car.Empty))
             {
-                CarSelector.Items.Add(carFuelAmount.Value.Item1);
+                CarSelector.Items.Add(carFuelAmount.Value.car);
+            }
+
+            foreach (KeyValuePair<Enums.Track, String> value in Enums.TrackNames.Where(trackNames => trackNames.Key != Enums.Track.Empty))
+            {
+                TrackSelector.Items.Add(value.Value);
             }
 
             CarSelector.SelectedIndex = 0;
-            FuelTankCapacity.Text = CarInfo.GetCarFuelFromCarEnum(CarInfo.GetCarFromCarName(CarSelector.Text)).ToString();
+            FuelTankCapacity.Text = Enums.GetCarFuelFromCarEnum(Enums.GetCarFromCarName(CarSelector.Text)).ToString();
            
-            SettingsSaveFilePath = Directory.GetCurrentDirectory() + "\\SavedSettings.txt";
+            _settingsSaveFilePath = Directory.GetCurrentDirectory() + "\\SavedSettings.txt";
 
             //Load the data from the save file
-            if (File.Exists(SettingsSaveFilePath))
+            if (Xml_deserializer.Xml.Deserialize<OldSettings>(_settingsSaveFilePath) != null)
             {
-                Settings setting = Xml_deserializer.Xml.Deserialize<Settings>(SettingsSaveFilePath);
-
-                    TotalRaceTimeHours.Text = Math.DivRem(setting.TotalRaceTime, 3600, out Int32 raceMinutes)
-                        .ToString();
-                    TotalRaceTimeMinutes.Text = raceMinutes.ToString();
-
-                    AverageLapTimeMinutes.Text =
-                        Math.DivRem(setting.AverageLapTime, 60, out Int32 averageLapTimeSeconds)
-                            .ToString();
-                    AverageLapTimeSeconds.Text = averageLapTimeSeconds.ToString();
-
-                    FuelPerLap.Text = setting.FuelPerLap.ToString();
-
-                CarSelector.SelectedIndex = setting.Car;
+                File.Delete(_settingsSaveFilePath);
             }
 
+            Settings setting = Xml_deserializer.Xml.Deserialize<Settings>(_settingsSaveFilePath);
+
+            if (setting != null)
+            {
+                // Total RaceTime
+                TotalRaceTimeHours.Text =
+                    Math.DivRem(setting.CarTrackCombo[0].TotalRaceTime, 3600, out Int32 raceMinutes).ToString();
+                TotalRaceTimeMinutes.Text = raceMinutes.ToString();
+                // AvarageLapTime
+                AverageLapTimeMinutes.Text = Math.DivRem(setting.CarTrackCombo[0].AverageLapTime, 60,
+                    out Int32 averageLapTimeSeconds).ToString();
+                AverageLapTimeSeconds.Text = averageLapTimeSeconds.ToString();
+                // Fuel Per Lap
+                FuelPerLap.Text = setting.CarTrackCombo[0].FuelPerLap.ToString();
+
+                CarSelector.SelectedIndex = setting.CarTrackCombo[0].Car;
+                TrackSelector.SelectedIndex = setting.CarTrackCombo[0].Track;
+            }
+            else
+            {
+                // Total RaceTime
+                TotalRaceTimeHours.Text = 0.ToString();
+                TotalRaceTimeMinutes.Text = 0.ToString();
+                // AverageLapTime
+                AverageLapTimeMinutes.Text = 0.ToString();
+                AverageLapTimeSeconds.Text = 0.ToString();
+                // Fuel Per Lap
+                FuelPerLap.Text = 0.ToString();
+
+                CarSelector.SelectedIndex = 0;
+                TrackSelector.SelectedIndex = 0;
+            }
         }
+        private void Window_Loaded(Object sender, RoutedEventArgs e)
+        {
+            if (File.Exists(_settingsSaveFilePath))
+            {
+                Settings settings = Xml_deserializer.Xml.Deserialize<Settings>(_settingsSaveFilePath);
+            }
+        }
+
 
         private void UpdateElements()
         {
@@ -145,8 +181,12 @@ namespace Fuel_calculator
         private void CarSelector_OnSelectionChanged(Object sender, SelectionChangedEventArgs e)
         {
             // Activates the Update elements from FuelTankCapacityChanged()
-            _car = CarInfo.GetCarFromCarName(e.AddedItems[0].ToString());
-            FuelTankCapacity.Text = CarInfo.GetCarFuelFromCarName(e.AddedItems[0].ToString()).ToString();
+            _car = Enums.GetCarFromCarName(e.AddedItems[0].ToString());
+            FuelTankCapacity.Text = Enums.GetCarFuelFromCarName(e.AddedItems[0].ToString()).ToString();
+        }
+        private void TrackSelector_SelectionChanged([NotNull] Object sender, SelectionChangedEventArgs e)
+        {
+            _track = (Enums.Track)TrackSelector.SelectedIndex;
         }
 
         // Utilities
@@ -161,23 +201,57 @@ namespace Fuel_calculator
 
         private void OnSaveClick(Object sender, RoutedEventArgs e)
         {
-            Settings settings = new Settings
+            Settings settings = Xml_deserializer.Xml.Deserialize<Settings>(_settingsSaveFilePath);
+            if (settings != null)
             {
-                AverageLapTime = _averageLapTime,
-                Car = (Int32) _car,
-                FuelPerLap = _fuelPerLap,
-                TotalRaceTime = _totalRaceTime
-            };
+                for (Int32 i = 0; i < settings.CarTrackCombo.Count; i++)
+                {
+                    CarTrackCombo value = settings.CarTrackCombo[i];
 
-            Xml_deserializer.Xml.Serialize(settings, SettingsSaveFilePath);
-        }
+                    if (value.Car != (Int32) _car || value.Track != (Int32) _track) continue;
 
-        private void Window_Loaded(Object sender, RoutedEventArgs e)
-        {
-            if (File.Exists(SettingsSaveFilePath))
-            {
-                Settings settings = Xml_deserializer.Xml.Deserialize<Settings>(SettingsSaveFilePath);
+                    settings.CarTrackCombo[i].AverageLapTime = _averageLapTime;
+                    settings.CarTrackCombo[i].Car = (Int32) _car;
+                    settings.CarTrackCombo[i].FuelPerLap = _fuelPerLap;
+                    settings.CarTrackCombo[i].TotalRaceTime = _totalRaceTime;
+
+                    Xml_deserializer.Xml.Serialize(settings, _settingsSaveFilePath);
+
+                    return;
+                }
+                settings.CarTrackCombo.Add(
+                    new CarTrackCombo()
+                    {
+                        Car = (Int32) _car,
+                        Track = (Int32) _track,
+                        AverageLapTime = _averageLapTime,
+                        FuelPerLap = _fuelPerLap,
+                        TotalRaceTime = _totalRaceTime,
+                    });
+
+                Xml_deserializer.Xml.Serialize(settings, _settingsSaveFilePath);
+                return;
             }
+            else
+            {
+
+                settings = new Settings
+                {  
+                    CarTrackCombo = new List<CarTrackCombo>
+                    {
+                        new CarTrackCombo()
+                        {
+                            Car = (Int32)_car,
+                            Track = (Int32)_track,
+                            AverageLapTime = _averageLapTime,
+                            FuelPerLap = _fuelPerLap,
+                            TotalRaceTime = _totalRaceTime,
+                        }
+                    }
+                };
+            }
+
+            Xml_deserializer.Xml.Serialize(settings, _settingsSaveFilePath);
         }
     }
 }
