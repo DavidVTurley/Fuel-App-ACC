@@ -176,11 +176,14 @@ namespace Fuel_calculator
         {
             if (TotalLaps.Content.ToString() != "" && FuelPerLap.Text != "")
             {
-                if (Single.TryParse(FuelPerLap.Text, out Single fuelPerLap))
+                String fuelPerLap = FuelPerLap.Text;
+                if (fuelPerLap.Contains(','))
                 {
-                    _fuelPerLap = Decimal.Parse(fuelPerLap.ToString());
-                    TotalFeulNeeded.Content = Int32.Parse(TotalLaps.Content.ToString()) * _fuelPerLap;
+                    fuelPerLap = fuelPerLap.Replace(',', '.');
                 }
+
+                _fuelPerLap = Decimal.Parse(fuelPerLap, NumberStyles.Any);
+                TotalFeulNeeded.Content = Int32.Parse(TotalLaps.Content.ToString()) * _fuelPerLap;
             }
 
             UpdateElements();
