@@ -26,7 +26,7 @@ namespace Fuel_calculator
         private Int32 _fuelTankCapacity;
         private Enums.Car _car;
         private Enums.Track _track;
-
+        
         private static String _settingsSaveFilePath;
 
         public MainWindow()
@@ -55,66 +55,45 @@ namespace Fuel_calculator
             if (setting != null)
             {
                 // Total RaceTime
-                SetTotalRaceTime(setting.CarTrackCombo[0].TotalRaceTime);
+                CalculateRaceTime(setting.CarTrackCombo[0].TotalRaceTime, out Int32 hours, out Int32 minutes);
+                TotalRaceTimeHours.Text = hours.ToString();
+                TotalRaceTimeMinutes.Text = minutes.ToString();
+
                 // AverageLapTime
-                SetAverageLap(setting.CarTrackCombo[0].AverageLapTime);
+                CalculateAvarageLapTime(setting.CarTrackCombo[0].AverageLapTime, out Int32 minutesAv, out Int32 seconds);
+                AverageLapTimeMinutes.Text = minutesAv.ToString();
+                AverageLapTimeSeconds.Text = seconds.ToString();
+
                 // Fuel Per Lap
-                SetFuelPerLap(setting.CarTrackCombo[0].FuelPerLap);
+                FuelPerLap.Text = setting.CarTrackCombo[0].FuelPerLap.ToString();
+
                 // Set Selectors
-                SetCarSelected((Enums.Car)setting.CarTrackCombo[0].Car);
-                SetTrackSelected((Enums.Track)setting.CarTrackCombo[0].Track);
+                CarSelector.SelectedIndex = setting.CarTrackCombo[0].Car;
+                TrackSelector.SelectedIndex = setting.CarTrackCombo[0].Track;
             }
             else
             {
-                // Total RaceTime
-                SetTotalRaceTime(0);
-                // AverageLapTime
-                SetAverageLap(0);
-                // Fuel Per Lap
-                SetFuelPerLap(0);
-                // Set Selectors
-                SetCarSelected((Enums.Car)0);
-                SetTrackSelected((Enums.Track)0);
+                TotalRaceTimeHours.Text = 0.ToString();
+                TotalRaceTimeMinutes.Text = 0.ToString();
+                AverageLapTimeMinutes.Text = 0.ToString();
+                AverageLapTimeSeconds.Text = 0.ToString();
+                FuelPerLap.Text = 0.ToString();
+
+                CarSelector.SelectedIndex = 0;
+                TrackSelector.SelectedIndex = 0;
             }
-        }
-        private void Window_Loaded(Object sender, RoutedEventArgs e)
-        {
-            if (File.Exists(_settingsSaveFilePath))
-            {
-                Settings settings = Xml_deserializer.Xml.Deserialize<Settings>(_settingsSaveFilePath);
-            }
+
+            UpdateElements();
         }
 
         //Calculations
-        private void SetTotalRaceTime(Int32 totalRaceTime)
+        private void CalculateRaceTime(Int32 totalRaceTimeInSeconds, out Int32 hours, out Int32 minutes)
         {
-            TotalRaceTimeHours.Text = Math.DivRem(totalRaceTime, 3600, out Int32 raceMinutes).ToString();
-            TotalRaceTimeMinutes.Text = raceMinutes.ToString();
+            hours = Math.DivRem(totalRaceTimeInSeconds, 3600, out minutes);
         }
-        private void SetAverageLap(Int32 averageRaceTime)
+        private void CalculateAvarageLapTime(Int32 avarageLapTimeInSeconds, out Int32 minutes, out Int32 seconds)
         {
-            AverageLapTimeMinutes.Text = Math.DivRem(averageRaceTime, 60, out Int32 averageLapTimeSeconds).ToString();
-            AverageLapTimeSeconds.Text = averageLapTimeSeconds.ToString();
-        }
-        private void SetFuelPerLap(Decimal fuelPerLap)
-        {
-            FuelPerLap.Text = fuelPerLap.ToString();
-        }
-        private void SetCarSelected(Enums.Car car)
-        {
-            CarSelector.SelectedIndex = (Int32)car;
-        }
-        private void SetCarSelected(Int32 car)
-        {
-            CarSelector.SelectedIndex = car;
-        }
-        private void SetTrackSelected(Enums.Track track)
-        {
-            TrackSelector.SelectedIndex = (Int32)track;
-        }
-        private void SetTrackSelected(Int32 track)
-        {
-            TrackSelector.SelectedIndex = track;
+            minutes = Math.DivRem(avarageLapTimeInSeconds, 60, out seconds);
         }
 
         private void UpdateElements()
@@ -126,13 +105,16 @@ namespace Fuel_calculator
 
         private void UpdateTotalLaps()
         {
-            if (_totalRaceTime <= 0 || _averageLapTime <= 0) return;
-            if (_totalRaceTime == 0 || _averageLapTime == 0)
+            if (_totalRaceTime <= 0 || _averageLapTime <= 0)
             {
                 TotalLaps.Content = "0";
-            }
 
-            // ReSharper disable once PossibleLossOfFraction
+                return;
+            }
+            if (_totalRaceTime == 0 || _averageLapTime == 0) return;
+            
+
+                // ReSharper disable once PossibleLossOfFraction
             Decimal laps = (Decimal) _totalRaceTime / _averageLapTime;
             TotalLaps.Content = ((Int32)Math.Ceiling(laps)).ToString();
         }
@@ -140,7 +122,11 @@ namespace Fuel_calculator
         {
             if (_fuelTankCapacity > 0 && _fuelPerLap > 0)
             {
-                LapsTillPitstop.Content = Math.Ceiling(_fuelTankCapacity / _fuelPerLap);
+                MaxStintLength.Content = Math.Ceiling(_fuelTankCapacity / _fuelPerLap);
+            }
+            else
+            {
+                MaxStintLength.Content = 0;
             }
         }
         private void UpdateTotalFuelNeeded()
@@ -148,6 +134,10 @@ namespace Fuel_calculator
             if (_totalRaceTime > 0 && _averageLapTime > 0 && _fuelPerLap > 0 )
             {
                 TotalFeulNeeded.Content = Math.DivRem(_totalRaceTime, _averageLapTime, out _) * _fuelPerLap;
+            }
+            else
+            {
+                TotalFeulNeeded.Content = 0;
             }
         }
 
@@ -164,7 +154,7 @@ namespace Fuel_calculator
                 totalSeconds += number1 * 60;
             }
 
-            SetTotalRaceTime(totalSeconds);
+            _totalRaceTime = totalSeconds;
             UpdateElements();
         }
         private void AverageLapTime_TextChanged(Object sender, TextChangedEventArgs e)
@@ -179,7 +169,7 @@ namespace Fuel_calculator
                 totalSeconds += number1;
             }
 
-            SetAverageLap(totalSeconds);
+            _averageLapTime = totalSeconds;
             UpdateElements();
         }
         private void FuelPerLap_TextChanged(Object sender, TextChangedEventArgs e)
@@ -212,14 +202,32 @@ namespace Fuel_calculator
                 CarTrackCombo carTrackCombo = GetCarTrackComboData(settings);
                 if (carTrackCombo != null)
                 {
-                    SetTotalRaceTime(carTrackCombo.TotalRaceTime);
-                    SetAverageLap(carTrackCombo.AverageLapTime);
-                    SetFuelPerLap(carTrackCombo.FuelPerLap);
-                    SetCarSelected(_car);
+                    CalculateRaceTime(carTrackCombo.TotalRaceTime, out Int32 hours, out Int32 minutes);
+                    TotalRaceTimeHours.Text = hours.ToString();
+                    TotalRaceTimeMinutes.Text = minutes.ToString();
+
+                    CalculateAvarageLapTime(carTrackCombo.AverageLapTime, out Int32 minutesAv, out Int32 seconds);
+                    AverageLapTimeMinutes.Text = minutesAv.ToString();
+                    AverageLapTimeSeconds.Text = seconds.ToString();
+
+                    FuelPerLap.Text = carTrackCombo.FuelPerLap.ToString();
+
+                    _car = (Enums.Car) carTrackCombo.Car;
+                    return;
                 }
-                SetCarSelected(CarSelector.SelectedIndex);
+
+                TotalRaceTimeHours.Text = 0.ToString();
+                TotalRaceTimeMinutes.Text = 0.ToString();
+                AverageLapTimeMinutes.Text = 0.ToString();
+                AverageLapTimeSeconds.Text = 0.ToString();
+                FuelPerLap.Text = 0.ToString();
+                return;
             }
-            SetCarSelected(CarSelector.SelectedIndex);
+            TotalRaceTimeHours.Text = 0.ToString();
+            TotalRaceTimeMinutes.Text = 0.ToString();
+            AverageLapTimeMinutes.Text = 0.ToString();
+            AverageLapTimeSeconds.Text = 0.ToString();
+            FuelPerLap.Text = 0.ToString();
         }
         private void TrackSelector_SelectionChanged(Object sender, SelectionChangedEventArgs e)
         {
@@ -231,14 +239,30 @@ namespace Fuel_calculator
                 CarTrackCombo carTrackCombo = GetCarTrackComboData(settings);
                 if (carTrackCombo != null)
                 {
-                    SetTotalRaceTime(carTrackCombo.TotalRaceTime);
-                    SetAverageLap(carTrackCombo.AverageLapTime);
-                    SetFuelPerLap(carTrackCombo.FuelPerLap);
-                    SetTrackSelected(_track);
+                    CalculateRaceTime(carTrackCombo.TotalRaceTime, out Int32 hours, out Int32 minutes);
+                    TotalRaceTimeHours.Text = hours.ToString();
+                    TotalRaceTimeMinutes.Text = minutes.ToString();
+
+                    CalculateAvarageLapTime(carTrackCombo.AverageLapTime, out Int32 minutesAv, out Int32 seconds);
+                    AverageLapTimeMinutes.Text = minutesAv.ToString();
+                    AverageLapTimeSeconds.Text = seconds.ToString();
+                    FuelPerLap.Text = carTrackCombo.FuelPerLap.ToString();
+
+                    _track = (Enums.Track)carTrackCombo.Track;
+                    return;
                 }
-                SetTrackSelected(TrackSelector.SelectedIndex);
+                TotalRaceTimeHours.Text = 0.ToString();
+                TotalRaceTimeMinutes.Text = 0.ToString();
+                AverageLapTimeMinutes.Text = 0.ToString();
+                AverageLapTimeSeconds.Text = 0.ToString();
+                FuelPerLap.Text = 0.ToString();
+                return;
             }
-            SetTrackSelected(TrackSelector.SelectedIndex);
+            TotalRaceTimeHours.Text = 0.ToString();
+            TotalRaceTimeMinutes.Text = 0.ToString();
+            AverageLapTimeMinutes.Text = 0.ToString();
+            AverageLapTimeSeconds.Text = 0.ToString();
+            FuelPerLap.Text = 0.ToString();
         }
 
         private CarTrackCombo GetCarTrackComboData(Settings settings)

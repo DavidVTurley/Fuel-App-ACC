@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="Fuel Calculator" Height="450" Width="760" SizeToContent="Manual"
-        WindowStyle="ThreeDBorderWindow" Icon="Logo.png" Background="LightGray" Loaded="Window_Loaded">
+        WindowStyle="ThreeDBorderWindow" Icon="Logo.png" Background="LightGray">
     <Viewbox Stretch="Uniform">
         <Grid Name="MainGrid" >
             <Grid.ColumnDefinitions>
@@ -56,10 +56,10 @@
             <Label Grid.Column="0" Grid.Row="5" FontWeight="Bold">Total laps:</Label>
             <Label Grid.Column="1" Grid.Row="5" FontWeight="Bold" Name="TotalLaps">0</Label>
             <Label Grid.Column="2" Grid.Row="5" FontWeight="Bold">Laps</Label>
-            <Button Grid.Column="4" Grid.Row="5" Click="OnSaveClick">Save as default</Button>
+            <Button Grid.Column="4" Grid.Row="5" Click="OnSaveClick">Save Fuel Setup</Button>
 
             <Label Grid.Column="0" Grid.Row="6" FontWeight="Bold" Content="Max Stint Length"/>
-            <Label Grid.Column="1" Grid.Row="6" FontWeight="Bold" Name="LapsTillPitstop">0</Label>
+            <Label Grid.Column="1" Grid.Row="6" FontWeight="Bold" Name="MaxStintLength">0</Label>
             <Label Grid.Column="2" Grid.Row="6" FontWeight="Bold">Laps</Label>
 
             <Label Grid.Column="0" Grid.Row="7" FontWeight="Bold">Total Fuel Needed:</Label>
