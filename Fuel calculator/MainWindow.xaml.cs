@@ -26,6 +26,9 @@ namespace Fuel_calculator
         private Int32 _fuelTankCapacity;
         private Enums.Car _car;
         private Enums.Track _track;
+
+        // Debug
+        private DateTime dateTime = DateTime.Now;
         
         private static String _settingsSaveFilePath;
 
@@ -99,7 +102,7 @@ namespace Fuel_calculator
         private void UpdateElements()
         {
             UpdateTotalLaps();
-            UpdateLapsTillPitStop();
+            UpdateMaxStintLength();
             UpdateTotalFuelNeeded();
         }
 
@@ -118,11 +121,11 @@ namespace Fuel_calculator
             Decimal laps = (Decimal) _totalRaceTime / _averageLapTime;
             TotalLaps.Content = ((Int32)Math.Ceiling(laps)).ToString();
         }
-        private void UpdateLapsTillPitStop()
+        private void UpdateMaxStintLength()
         {
             if (_fuelTankCapacity > 0 && _fuelPerLap > 0)
             {
-                MaxStintLength.Content = Math.Ceiling(_fuelTankCapacity / _fuelPerLap).ToString();
+                MaxStintLength.Content = (_fuelTankCapacity / _fuelPerLap).ToString("0.00");
             }
             else
             {
@@ -133,11 +136,11 @@ namespace Fuel_calculator
         {
             if (_totalRaceTime > 0 && _averageLapTime > 0 && _fuelPerLap > 0 )
             {
-                TotalFeulNeeded.Content = Math.DivRem(_totalRaceTime, _averageLapTime, out _) * _fuelPerLap;
+                TotalFeulNeeded.Content = (Math.DivRem(_totalRaceTime, _averageLapTime, out _) * _fuelPerLap).ToString("0.00");
             }
             else
             {
-                TotalFeulNeeded.Content = 0;
+                TotalFeulNeeded.Content = 0.00;
             }
         }
 
@@ -193,8 +196,12 @@ namespace Fuel_calculator
                 {
                     FuelPerLapSlider.Value = 0;
                     _fuelPerLap = tempFuelPerLap;
-                    String log = "Fuel per lap error. Parsing float failed. Input = " + FuelPerLap.Text + ";";
-                    Logger.WriteToLog(log);
+                    if (dateTime + new TimeSpan(0, 0, 1) > DateTime.Now)
+                    {
+                        dateTime = DateTime.Now;
+                        String log = "Fuel per lap error. Parsing float failed. Input = " + FuelPerLap.Text + ". Output " + tempFuelPerLap + ";";
+                        Logger.WriteToLog(log);
+                    }
                 }
             }
             FuelPerLapSlider.ValueChanged += FuelPerLapSlider_ValueChanged;
@@ -204,6 +211,12 @@ namespace Fuel_calculator
         private void FuelPerLapSlider_ValueChanged(Object sender, RoutedPropertyChangedEventArgs<Double> e)
         {
             FuelPerLap.Text = e.NewValue.ToString("0.00");
+        }
+
+        private void LogFuelPerLap(Object sender, RoutedEventArgs e)
+        {
+            Logger.WriteToLog("Fuel per lap text box: " + FuelPerLap.Text + ";");
+            Logger.WriteToLog("Fuel per lap private: " + _fuelPerLap + ";");
         }
         private void FuelTankCapacityChanged(Object sender, TextChangedEventArgs e)
         {
@@ -362,5 +375,6 @@ namespace Fuel_calculator
 
             Xml_deserializer.Xml.Serialize(settings, _settingsSaveFilePath);
         }
+
     }
 }
