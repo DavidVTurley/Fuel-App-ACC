@@ -22,7 +22,7 @@ namespace Fuel_calculator
         /// </summary>
         private Int32 _totalRaceTime;
         private Int32 _averageLapTime;
-        private Decimal _fuelPerLap;
+        private Single _fuelPerLap;
         private Int32 _fuelTankCapacity;
         private Enums.Car _car;
         private Enums.Track _track;
@@ -122,7 +122,7 @@ namespace Fuel_calculator
         {
             if (_fuelTankCapacity > 0 && _fuelPerLap > 0)
             {
-                MaxStintLength.Content = Math.Ceiling(_fuelTankCapacity / _fuelPerLap);
+                MaxStintLength.Content = Math.Ceiling(_fuelTankCapacity / _fuelPerLap).ToString();
             }
             else
             {
@@ -174,6 +174,7 @@ namespace Fuel_calculator
         }
         private void FuelPerLap_TextChanged(Object sender, TextChangedEventArgs e)
         {
+            FuelPerLapSlider.ValueChanged -= FuelPerLapSlider_ValueChanged;
             if (TotalLaps.Content.ToString() != "" && FuelPerLap.Text != "")
             {
                 String fuelPerLap = FuelPerLap.Text;
@@ -182,13 +183,27 @@ namespace Fuel_calculator
                     fuelPerLap = fuelPerLap.Replace(',', '.');
                 }
 
-                _fuelPerLap = Decimal.Parse(fuelPerLap, NumberStyles.Any);
-                TotalFeulNeeded.Content = Int32.Parse(TotalLaps.Content.ToString()) * _fuelPerLap;
+                if (Single.TryParse(fuelPerLap, out Single tempFuelPerLap))
+                {
+                    _fuelPerLap = tempFuelPerLap;
+                    TotalFeulNeeded.Content = Int32.Parse(TotalLaps.Content.ToString()) * _fuelPerLap;
+                    FuelPerLapSlider.Value = tempFuelPerLap;
+                }
+                else
+                {
+                    FuelPerLapSlider.Value = 0;
+                    _fuelPerLap = tempFuelPerLap;
                     String log = "Fuel per lap error. Parsing float failed. Input = " + FuelPerLap.Text + ";";
                     Logger.WriteToLog(log);
+                }
             }
+            FuelPerLapSlider.ValueChanged += FuelPerLapSlider_ValueChanged;
 
             UpdateElements();
+        }
+        private void FuelPerLapSlider_ValueChanged(Object sender, RoutedPropertyChangedEventArgs<Double> e)
+        {
+            FuelPerLap.Text = e.NewValue.ToString("0.00");
         }
         private void FuelTankCapacityChanged(Object sender, TextChangedEventArgs e)
         {

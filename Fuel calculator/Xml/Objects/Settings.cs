@@ -18,6 +18,6 @@ namespace Fuel_calculator.Xml
 
         [XmlElement("TotalRaceTime")] public Int32 TotalRaceTime;
         [XmlElement("AverageLapTime")] public Int32 AverageLapTime;
-        [XmlElement("FuelPerLap")] public Decimal FuelPerLap;
+        [XmlElement("FuelPerLap")] public Single FuelPerLap;
     }
 }
