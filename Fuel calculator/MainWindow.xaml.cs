@@ -184,6 +184,8 @@ namespace Fuel_calculator
 
                 _fuelPerLap = Decimal.Parse(fuelPerLap, NumberStyles.Any);
                 TotalFeulNeeded.Content = Int32.Parse(TotalLaps.Content.ToString()) * _fuelPerLap;
+                    String log = "Fuel per lap error. Parsing float failed. Input = " + FuelPerLap.Text + ";";
+                    Logger.WriteToLog(log);
             }
 
             UpdateElements();

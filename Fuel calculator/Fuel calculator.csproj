@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Logger.cs" />
     <Compile Include="Xml\Objects\OldSettings.cs" />
     <Compile Include="Xml\Objects\Settings.cs" />
     <Page Include="MainWindow.xaml">
