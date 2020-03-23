@@ -58,7 +58,7 @@ namespace Fuel_calculator
                 TotalRaceTimeMinutes.Text = minutes.ToString();
 
                 // AverageLapTime
-                CalculateAvarageLapTime(setting.CarTrackCombo[0].AverageLapTime, out Int32 minutesAv, out Int32 seconds);
+                CalculateAverageLapTime(setting.CarTrackCombo[0].AverageLapTime, out Int32 minutesAv, out Int32 seconds);
                 AverageLapTimeMinutes.Text = minutesAv.ToString();
                 AverageLapTimeSeconds.Text = seconds.ToString();
 
@@ -85,13 +85,13 @@ namespace Fuel_calculator
         }
 
         //Calculations
-        private void CalculateRaceTime(Int32 totalRaceTimeInSeconds, out Int32 hours, out Int32 minutes)
+        private static void CalculateRaceTime(Int32 totalRaceTimeInSeconds, out Int32 hours, out Int32 minutes)
         {
             hours = Math.DivRem(totalRaceTimeInSeconds, 3600, out minutes);
         }
-        private void CalculateAvarageLapTime(Int32 avarageLapTimeInSeconds, out Int32 minutes, out Int32 seconds)
+        private static void CalculateAverageLapTime(Int32 averageLapTimeInSeconds, out Int32 minutes, out Int32 seconds)
         {
-            minutes = Math.DivRem(avarageLapTimeInSeconds, 60, out seconds);
+            minutes = Math.DivRem(averageLapTimeInSeconds, 60, out seconds);
         }
 
         private void UpdateElements()
@@ -244,7 +244,7 @@ namespace Fuel_calculator
                     TotalRaceTimeHours.Text = hours.ToString();
                     TotalRaceTimeMinutes.Text = minutes.ToString();
 
-                    CalculateAvarageLapTime(carTrackCombo.AverageLapTime, out Int32 minutesAv, out Int32 seconds);
+                    CalculateAverageLapTime(carTrackCombo.AverageLapTime, out Int32 minutesAv, out Int32 seconds);
                     AverageLapTimeMinutes.Text = minutesAv.ToString();
                     AverageLapTimeSeconds.Text = seconds.ToString();
 
@@ -281,7 +281,7 @@ namespace Fuel_calculator
                     TotalRaceTimeHours.Text = hours.ToString();
                     TotalRaceTimeMinutes.Text = minutes.ToString();
 
-                    CalculateAvarageLapTime(carTrackCombo.AverageLapTime, out Int32 minutesAv, out Int32 seconds);
+                    CalculateAverageLapTime(carTrackCombo.AverageLapTime, out Int32 minutesAv, out Int32 seconds);
                     AverageLapTimeMinutes.Text = minutesAv.ToString();
                     AverageLapTimeSeconds.Text = seconds.ToString();
                     FuelPerLap.Text = carTrackCombo.FuelPerLap.ToString();
