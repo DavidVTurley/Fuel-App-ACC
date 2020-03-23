@@ -5,8 +5,6 @@ using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Xml;
-using Fuel_calculator.Annotations;
 using Fuel_calculator.Xml;
 using Fuel_calculator.Xml.Fuel_calculator.Xml;
 
@@ -27,9 +25,6 @@ namespace Fuel_calculator
         private Enums.Car _car;
         private Enums.Track _track;
 
-        // Debug
-        private DateTime dateTime = DateTime.Now;
-        
         private static String _settingsSaveFilePath;
 
         public MainWindow()
@@ -203,12 +198,6 @@ namespace Fuel_calculator
                 {
                     FuelPerLapSlider.Value = 0;
                     _fuelPerLap = tempFuelPerLap;
-                    if (dateTime + new TimeSpan(0, 0, 1) > DateTime.Now)
-                    {
-                        dateTime = DateTime.Now;
-                        String log = "Fuel per lap error. Parsing float failed. Input = " + FuelPerLap.Text + ". Output " + tempFuelPerLap + ";";
-                        Logger.WriteToLog(log);
-                    }
 #if DEBUG
                     String log = "Fuel per lap error. Parsing float failed. Input = " + FuelPerLap.Text + ". Output " +
                                  tempFuelPerLap + ";";
