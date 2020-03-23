@@ -5,6 +5,7 @@ using System.Xml;
 
 namespace Fuel_calculator
 {
+#if DEBUG
     public static class Logger
     {
         private static readonly String LogFileLocation = Directory.GetCurrentDirectory() + "\\Debug.txt";
@@ -24,4 +25,5 @@ namespace Fuel_calculator
             }
         }
     }
+#endif
 }

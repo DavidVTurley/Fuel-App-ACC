@@ -209,6 +209,11 @@ namespace Fuel_calculator
                         String log = "Fuel per lap error. Parsing float failed. Input = " + FuelPerLap.Text + ". Output " + tempFuelPerLap + ";";
                         Logger.WriteToLog(log);
                     }
+#if DEBUG
+                    String log = "Fuel per lap error. Parsing float failed. Input = " + FuelPerLap.Text + ". Output " +
+                                 tempFuelPerLap + ";";
+                    Logger.WriteToLog(log);
+#endif
                 }
             }
             FuelPerLapSlider.ValueChanged += FuelPerLapSlider_ValueChanged;
@@ -224,8 +229,10 @@ namespace Fuel_calculator
 
         private void LogFuelPerLap(Object sender, RoutedEventArgs e)
         {
+#if DEBUG
             Logger.WriteToLog("Fuel per lap text box: " + FuelPerLap.Text + ";");
             Logger.WriteToLog("Fuel per lap private: " + _fuelPerLap + ";");
+#endif
         }
         private void FuelTankCapacityChanged(Object sender, TextChangedEventArgs e)
         {
