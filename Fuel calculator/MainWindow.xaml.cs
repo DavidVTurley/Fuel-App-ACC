@@ -186,10 +186,17 @@ namespace Fuel_calculator
                     fuelPerLap = fuelPerLap.Replace(',', '.');
                 }
 
-                if (Single.TryParse(fuelPerLap, out Single tempFuelPerLap))
+                if (Single.TryParse(fuelPerLap, NumberStyles.Number, CultureInfo.InvariantCulture ,out Single tempFuelPerLap))
                 {
                     _fuelPerLap = tempFuelPerLap;
-                    TotalFeulNeeded.Content = Int32.Parse(TotalLaps.Content.ToString()) * _fuelPerLap;
+                    String totalLaps = TotalLaps.Content.ToString();
+                    if (totalLaps.Contains(','))
+                    {
+                        totalLaps = totalLaps.Replace(',', '.');
+                    }
+
+                    Int32.TryParse(totalLaps, out Int32 totalLapsInt);
+                    TotalFeulNeeded.Content = totalLapsInt * _fuelPerLap;
                     FuelPerLapSlider.Value = tempFuelPerLap;
                 }
                 else
@@ -210,7 +217,9 @@ namespace Fuel_calculator
         }
         private void FuelPerLapSlider_ValueChanged(Object sender, RoutedPropertyChangedEventArgs<Double> e)
         {
+            _fuelPerLap = (Single)e.NewValue;
             FuelPerLap.Text = e.NewValue.ToString("0.00");
+            UpdateElements();
         }
 
         private void LogFuelPerLap(Object sender, RoutedEventArgs e)
