@@ -27,9 +27,13 @@ namespace Fuel_calculator
 
         private static String _settingsSaveFilePath;
 
+        private static readonly System.Windows.Media.Color ColorError = Color.FromRgb(255, 88, 88);
+        private static readonly System.Windows.Media.Color ColorRight = Color.FromRgb(255, 255, 255);
+
         public MainWindow()
         {
             InitializeComponent();
+
             foreach (KeyValuePair<Enums.Car, (String car, Int32 fuel)> carFuelAmount in Enums.CarFuelAmounts.Where(carFuelAmount => carFuelAmount.Key != Enums.Car.Empty))
             {
                 CarSelector.Items.Add(carFuelAmount.Value.car);
@@ -143,13 +147,35 @@ namespace Fuel_calculator
         private void TotalRaceTime_TextChanged(Object sender, TextChangedEventArgs e)
         {
             Int32 totalSeconds = 0;
-            if (IsNumber(TotalRaceTimeHours.Text, out Int32 number) && number > 0)
+
+            //TotalRaceTimeHours
+            if (TotalRaceTimeHours.Text == "")
+            {
+                TotalRaceTimeHours.Background = new SolidColorBrush(ColorRight);
+            }
+            else if (IsNumber(TotalRaceTimeHours.Text, out Int32 number) && number > 0)
             {
                 totalSeconds += number * 3600;
+                TotalRaceTimeHours.Background = new SolidColorBrush(ColorRight);
             }
-            if (IsNumber(TotalRaceTimeMinutes.Text, out Int32 number1))
+            else
+            {
+                TotalRaceTimeHours.Background = new SolidColorBrush(ColorError);
+            }
+
+            //TotalRaceTimeMinutes
+            if (TotalRaceTimeHours.Text == "")
+            {
+                TotalRaceTimeMinutes.Background = new SolidColorBrush(ColorRight);
+            }
+            else if (IsNumber(TotalRaceTimeMinutes.Text, out Int32 number1))
             {
                 totalSeconds += number1 * 60;
+                TotalRaceTimeMinutes.Background = new SolidColorBrush(ColorRight);
+            }
+            else
+            {
+                TotalRaceTimeMinutes.Background = new SolidColorBrush(ColorError);
             }
 
             _totalRaceTime = totalSeconds;
@@ -158,13 +184,35 @@ namespace Fuel_calculator
         private void AverageLapTime_TextChanged(Object sender, TextChangedEventArgs e)
         {
             Int32 totalSeconds = 0;
-            if (IsNumber(AverageLapTimeMinutes.Text, out Int32 number) && number >= 0)
+
+            //AverageLapTimeMinutes
+            if (AverageLapTimeMinutes.Text == "")
             {
+                AverageLapTimeMinutes.Background = new SolidColorBrush(ColorRight);
+            }
+            else if (IsNumber(AverageLapTimeMinutes.Text, out Int32 number) && number >= 0)
+            {
+                AverageLapTimeMinutes.Background = new SolidColorBrush(ColorRight);
                 totalSeconds += number * 60;
             }
-            if (IsNumber(AverageLapTimeSeconds.Text, out Int32 number1))
+            else
             {
+                AverageLapTimeMinutes.Background = new SolidColorBrush(ColorError);
+            }
+
+            //AverageLapTimeSeconds
+            if (AverageLapTimeSeconds.Text == "")
+            {
+                AverageLapTimeSeconds.Background = new SolidColorBrush(ColorRight);
+            }
+            else if (IsNumber(AverageLapTimeSeconds.Text, out Int32 number1))
+            {
+                AverageLapTimeSeconds.Background = new SolidColorBrush(ColorRight);
                 totalSeconds += number1;
+            }
+            else
+            {
+                AverageLapTimeSeconds.Background = new SolidColorBrush(ColorError);
             }
 
             _averageLapTime = totalSeconds;
