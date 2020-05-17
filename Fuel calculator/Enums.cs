@@ -25,7 +25,7 @@ namespace Fuel_calculator
             Lamborghini_Hurcan_ST,
             Lexus_RC_GT3,
             McLarren_650S_GT3,
-            McLarren_729S_GT3,
+            McLarren_720S_GT3,
             Mercedes_AMG_GT3,
             Nissan_GT_R_Nismo_GT3_2015,
             Nissan_GT_R_Nismo_GT3_2018,
@@ -55,13 +55,11 @@ namespace Fuel_calculator
                 {Car.Lamborghini_Hurcan_ST, ("Lamborghini Huracan ST", 120)},
                 {Car.Lexus_RC_GT3, ("Lexus RC GT3", 120)},
                 {Car.McLarren_650S_GT3, ("McLarren 650S GT3", 125)},
-                {Car.McLarren_729S_GT3, ("McLarren 729S GT3", 125)},
+                {Car.McLarren_720S_GT3, ("McLarren 720S GT3", 125)},
                 {Car.Mercedes_AMG_GT3, ("Mercedes AMG GT3", 120)},
                 {Car.Nissan_GT_R_Nismo_GT3_2015, ("Nissan GT-R Nismo GT3 2015", 132)},
                 {Car.Nissan_GT_R_Nismo_GT3_2018, ("Nissan GT-R Nismo GT3 2018", 132)},
-                {
-                    Car.Porsche_991_GT3_R, ("Porsche 991 GT3-R", 120)
-                }, //There is another version, but for fuel it is the same
+                {Car.Porsche_991_GT3_R, ("Porsche 991 GT3-R", 120)}, //There is another version, but for fuel it is the same
                 {Car.Porsche_991_GT3_Cup, ("Porsche 991 GT3 Cup", 100)},
                 {Car.Reiter_Engineering_R_EX_GT3, ("Reiter Engineering R-EX GT3", 130)},
                 // ReSharper restore StringLiteralTypo
