@@ -63,9 +63,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\NumericInput.xaml.cs">
+      <DependentUpon>NumericInput.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Logger.cs" />
+    <Compile Include="Xml\Objects\Car.cs" />
     <Compile Include="Xml\Objects\OldSettings.cs" />
     <Compile Include="Xml\Objects\Settings.cs" />
+    <Compile Include="Xml\Objects\Track.cs" />
+    <Compile Include="Xml\Objects\TrackCarCombo.cs" />
+    <Page Include="Controls\NumericInput.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -118,6 +128,15 @@
       <Project>{5fe8da5c-ab44-4cea-85ea-5c383ae65542}</Project>
       <Name>Xml deserializer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Xml\Cars.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Xml\Tracks.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Xml\CarTrackCombo.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

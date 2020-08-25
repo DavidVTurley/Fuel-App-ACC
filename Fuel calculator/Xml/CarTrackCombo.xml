@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Car_Track_Combo>
+  <Car>
+    [XmlElement("Name")] public Int32 Name;
+    [XmlElement("Max_fuel")] public Int32 MaxFuel;
+  </Car>
+  <track>
+    <Name></Name>
+  </track>
+</Car_Track_Combo>
