@@ -104,7 +104,7 @@ namespace Fuel_calculator
             Spa_Francorchamps,
             Nürburgring,
             Hungaroring,
-            Barcalona,
+            Barcelona,
             Zolder,
             Mount_Panorama,
             Laguna_Seca,
