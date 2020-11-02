@@ -124,7 +124,7 @@ namespace Fuel_calculator
             {Track.Spa_Francorchamps, "Spa Francorchamps"},
             {Track.Nürburgring, "Nürburgring"},
             {Track.Hungaroring, "Hungaroring"},
-            {Track.Barcalona, "Barcalona"},
+            {Track.Barcelona, "Barcalona"},
             {Track.Zolder, "Zolder"},
             {Track.Mount_Panorama, "Mount Panorama"},
             {Track.Laguna_Seca, "Laguna Seca"},
