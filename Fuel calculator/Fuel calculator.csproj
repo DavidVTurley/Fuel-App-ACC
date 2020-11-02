@@ -124,12 +124,6 @@
     <Resource Include="Logo.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\_Utilities\Xml deserializer\Xml deserializer\Xml deserializer.csproj">
-      <Project>{5fe8da5c-ab44-4cea-85ea-5c383ae65542}</Project>
-      <Name>Xml deserializer</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Xml\Cars.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -137,6 +131,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Xml\CarTrackCombo.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Xml deserializer\Xml deserializer\Xml deserializer.csproj">
+      <Project>{5fe8da5c-ab44-4cea-85ea-5c383ae65542}</Project>
+      <Name>Xml deserializer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
