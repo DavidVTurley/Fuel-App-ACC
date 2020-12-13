@@ -32,7 +32,17 @@ namespace Fuel_calculator
             Porsche_991_GT3_R,
             Porsche_991_GT3_Cup,
             Reiter_Engineering_R_EX_GT3,
-
+            Alpine_A110_GT4,
+            Aston_Martin_Vantage_GT4,
+            Audi_R8_LMS_GT4,
+            BMW_M4_GT4,
+            Chevrolet_Camaro_GT4R,
+            Ginetta_G55_GT4,
+            KTM_XBow_GT4,
+            Maserati_MC_GT4,
+            Mclaren_570S_GT4,
+            Mercedes_AMG_GT4,
+            Porsche_718_Cayman_GT4_Clubsport,
             Empty
             // ReSharper restore InconsistentNaming
         }
@@ -62,6 +72,17 @@ namespace Fuel_calculator
                 {Car.Porsche_991_GT3_R, ("Porsche 991 GT3-R", 120)}, //There is another version, but for fuel it is the same
                 {Car.Porsche_991_GT3_Cup, ("Porsche 991 GT3 Cup", 100)},
                 {Car.Reiter_Engineering_R_EX_GT3, ("Reiter Engineering R-EX GT3", 130)},
+                {Car.Alpine_A110_GT4, ("Alpine A110 GT4", 95)},
+                {Car.Aston_Martin_Vantage_GT4, ("Aston Martin Vantage GT4", 120)},
+                {Car.Audi_R8_LMS_GT4, ("Audi R8 LMS GT4", 120)},
+                {Car.BMW_M4_GT4, ("BMW M4 GT4", 127)},
+                {Car.Chevrolet_Camaro_GT4R, ("Chevrolet Camaro GT4R", 120)},
+                {Car.Ginetta_G55_GT4, ("Ginetta G55 GT4", 107)},
+                {Car.KTM_XBow_GT4, ("KTM X-Bow GT4", 120)},
+                {Car.Maserati_MC_GT4, ("Maserati MC GT4", 110)},
+                {Car.Mclaren_570S_GT4, ("Mclaren 570S GT4", 110)},
+                {Car.Mercedes_AMG_GT4, ("Mercedes AMG GT4", 120)},
+                {Car.Porsche_718_Cayman_GT4_Clubsport, ("Porsche 718 Cayman GT4 Clubsport", 115)},
                 // ReSharper restore StringLiteralTypo
             };
 
@@ -104,7 +125,7 @@ namespace Fuel_calculator
             Spa_Francorchamps,
             Nürburgring,
             Hungaroring,
-            Barcalona,
+            Barcelona,
             Zolder,
             Mount_Panorama,
             Laguna_Seca,
@@ -124,7 +145,7 @@ namespace Fuel_calculator
             {Track.Spa_Francorchamps, "Spa Francorchamps"},
             {Track.Nürburgring, "Nürburgring"},
             {Track.Hungaroring, "Hungaroring"},
-            {Track.Barcalona, "Barcalona"},
+            {Track.Barcelona, "Barcalona"},
             {Track.Zolder, "Zolder"},
             {Track.Mount_Panorama, "Mount Panorama"},
             {Track.Laguna_Seca, "Laguna Seca"},
