@@ -152,7 +152,7 @@ namespace Fuel_calculator
             {Track.Laguna_Seca, "Laguna Seca"},
             {Track.Suzuka, "Suzuka"},
             {Track.Kyalami, "Kyalami"},
-            {Track.Imola, " Imola" }
+            {Track.Imola, "Imola" }
             // ReSharper restore IdentifierTypo
             // // ReSharper restore InconsistentNaming
             // ReSharper restore StringLiteralTypo
