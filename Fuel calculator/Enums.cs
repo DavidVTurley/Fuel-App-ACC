@@ -131,6 +131,7 @@ namespace Fuel_calculator
             Laguna_Seca,
             Suzuka,
             Kyalami,
+            Imola,
 
             Empty,
         }
@@ -150,7 +151,8 @@ namespace Fuel_calculator
             {Track.Mount_Panorama, "Mount Panorama"},
             {Track.Laguna_Seca, "Laguna Seca"},
             {Track.Suzuka, "Suzuka"},
-            {Track.Kyalami, "Kyalami"}
+            {Track.Kyalami, "Kyalami"},
+            {Track.Imola, " Imola" }
             // ReSharper restore IdentifierTypo
             // // ReSharper restore InconsistentNaming
             // ReSharper restore StringLiteralTypo
