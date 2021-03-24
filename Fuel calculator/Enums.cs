@@ -132,6 +132,9 @@ namespace Fuel_calculator
             Suzuka,
             Kyalami,
             Imola,
+            Donington_Park_Circuit,
+            Oulton_Park_Circuit,
+            Snetterton_Circuit,
 
             Empty,
         }
@@ -152,7 +155,12 @@ namespace Fuel_calculator
             {Track.Laguna_Seca, "Laguna Seca"},
             {Track.Suzuka, "Suzuka"},
             {Track.Kyalami, "Kyalami"},
-            {Track.Imola, "Imola" }
+            {Track.Imola, "Imola" },
+            {Track.Donington_Park_Circuit, "Donington Park Circuit"},
+            {Track.Oulton_Park_Circuit, "Oulton Park Circuit"},
+            {Track.Snetterton_Circuit, "Snetterton Circuit"},
+
+
             // ReSharper restore IdentifierTypo
             // // ReSharper restore InconsistentNaming
             // ReSharper restore StringLiteralTypo
