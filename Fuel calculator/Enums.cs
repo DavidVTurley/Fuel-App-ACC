@@ -18,6 +18,7 @@ namespace Fuel_calculator
             BMW_M6_GT3,
             Emil_Frey_Jaguar_G3,
             Ferrari_488_GT3,
+            Ferrari_488_GT3_Evo,
             Honda_NSX_GT3,
             Honda_NSX_GT3_Evo,
             Lamborghini_Hurcan_GT3,
@@ -27,9 +28,11 @@ namespace Fuel_calculator
             McLarren_650S_GT3,
             McLarren_720S_GT3,
             Mercedes_AMG_GT3,
+            Mercedes_AMG_GT3_2020,
             Nissan_GT_R_Nismo_GT3_2015,
             Nissan_GT_R_Nismo_GT3_2018,
             Porsche_991_GT3_R,
+            Porsche_991_II_GT3_R,
             Porsche_991_GT3_Cup,
             Reiter_Engineering_R_EX_GT3,
             Alpine_A110_GT4,
@@ -43,6 +46,8 @@ namespace Fuel_calculator
             Mclaren_570S_GT4,
             Mercedes_AMG_GT4,
             Porsche_718_Cayman_GT4_Clubsport,
+
+
             Empty
             // ReSharper restore InconsistentNaming
         }
@@ -58,6 +63,7 @@ namespace Fuel_calculator
                 {Car.BMW_M6_GT3, ("BMW M6 GT3", 125)},
                 {Car.Emil_Frey_Jaguar_G3, ("Emil Frey Jaguar G3", 119)},
                 {Car.Ferrari_488_GT3, ("Ferrari 488 GT3", 110)},
+                {Car.Ferrari_488_GT3_Evo, ("Ferrari 488 GT3 Evo", 110)},
                 {Car.Honda_NSX_GT3, ("Honda NSX GT3", 120)},
                 {Car.Honda_NSX_GT3_Evo, ("Honda NSX GT3 Evo", 120)},
                 {Car.Lamborghini_Hurcan_GT3, ("Lamborghini Hurcan GT3", 120)},
@@ -67,9 +73,11 @@ namespace Fuel_calculator
                 {Car.McLarren_650S_GT3, ("McLarren 650S GT3", 125)},
                 {Car.McLarren_720S_GT3, ("McLarren 720S GT3", 125)},
                 {Car.Mercedes_AMG_GT3, ("Mercedes AMG GT3", 120)},
+                {Car.Mercedes_AMG_GT3_2020, ("Mercedes AMG GT3 2020", 120)},
                 {Car.Nissan_GT_R_Nismo_GT3_2015, ("Nissan GT-R Nismo GT3 2015", 132)},
                 {Car.Nissan_GT_R_Nismo_GT3_2018, ("Nissan GT-R Nismo GT3 2018", 132)},
                 {Car.Porsche_991_GT3_R, ("Porsche 991 GT3-R", 120)}, //There is another version, but for fuel it is the same
+                {Car.Porsche_991_II_GT3_R, ("Porsche 991 II GT3 Cup", 120)},
                 {Car.Porsche_991_GT3_Cup, ("Porsche 991 GT3 Cup", 100)},
                 {Car.Reiter_Engineering_R_EX_GT3, ("Reiter Engineering R-EX GT3", 130)},
                 {Car.Alpine_A110_GT4, ("Alpine A110 GT4", 95)},
