@@ -77,7 +77,7 @@ namespace Fuel_calculator
                 {Car.Nissan_GT_R_Nismo_GT3_2015, ("Nissan GT-R Nismo GT3 2015", 132)},
                 {Car.Nissan_GT_R_Nismo_GT3_2018, ("Nissan GT-R Nismo GT3 2018", 132)},
                 {Car.Porsche_991_GT3_R, ("Porsche 991 GT3-R", 120)}, //There is another version, but for fuel it is the same
-                {Car.Porsche_991_II_GT3_R, ("Porsche 991 II GT3 Cup", 120)},
+                {Car.Porsche_991_II_GT3_R, ("Porsche 991 II GT3 R", 120)},
                 {Car.Porsche_991_GT3_Cup, ("Porsche 991 GT3 Cup", 100)},
                 {Car.Reiter_Engineering_R_EX_GT3, ("Reiter Engineering R-EX GT3", 130)},
                 {Car.Alpine_A110_GT4, ("Alpine A110 GT4", 95)},
