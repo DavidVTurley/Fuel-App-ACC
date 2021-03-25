@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics.CodeAnalysis;
 using System.Xml.Serialization;
 
 namespace Xml_deserializer.Xml_Objects

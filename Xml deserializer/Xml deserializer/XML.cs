@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.IO;
-using System.Xml;
 using System.Xml.Serialization;
-using Xml_deserializer.Xml_Objects;
 
 namespace Xml_deserializer
 {
