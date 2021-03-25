@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Documents;
 using System.Xml.Serialization;
 
 namespace Fuel_calculator.Xml

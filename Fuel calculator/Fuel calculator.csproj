@@ -67,9 +67,6 @@
       <DependentUpon>NumericInput.xaml</DependentUpon>
     </Compile>
     <Compile Include="Logger.cs" />
-    <Compile Include="MainWindow - Copy.xaml.cs">
-      <DependentUpon>MainWindow - Copy.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Xml\Objects\Car.cs" />
     <Compile Include="Xml\Objects\OldSettings.cs" />
     <Compile Include="Xml\Objects\Settings.cs" />
@@ -78,10 +75,6 @@
     <Page Include="Controls\NumericInput.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MainWindow - Copy.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -140,10 +133,6 @@
     <Resource Include="Xml\CarTrackCombo.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\assettocorsasharedmemory\AssettoCorsaSharedMemory.csproj">
-      <Project>{020AF3ED-0A4C-4215-9B1D-1D41DD26F8BB}</Project>
-      <Name>AssettoCorsaSharedMemory</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Xml deserializer\Xml deserializer\Xml deserializer.csproj">
       <Project>{5fe8da5c-ab44-4cea-85ea-5c383ae65542}</Project>
       <Name>Xml deserializer</Name>
