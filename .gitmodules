@@ -1,0 +1,3 @@
+[submodule "assettocorsasharedmemory"]
+	path = assettocorsasharedmemory
+	url = https://github.com/DavidVTurley/assettocorsasharedmemory
