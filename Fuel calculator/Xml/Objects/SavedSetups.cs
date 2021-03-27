@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Windows.Documents;
 using System.Xml.Serialization;
 
 namespace Fuel_calculator.Xml.Objects
@@ -13,16 +12,16 @@ namespace Fuel_calculator.Xml.Objects
         [XmlElement("Car")] public Car Car;
     }
 
-    [XmlRoot("SavedCombinations")]
-    public class SavedCombinations
+    [XmlRoot("SavedSetups")]
+    public class SavedSetups
     {
         [XmlElement("CarTrackCombo")] public List<CarTrackCombo> CarTrackCombo;
         [XmlElement("FuelPerLap")] public Single FuelPerLap;
 
 
-        public static SavedCombinations LoadCarTrackComboFromXml()
+        public static SavedSetups LoadCarTrackComboFromXml()
         {
-            return Xml_deserializer.Xml.Deserialize<SavedCombinations>(Directory.GetCurrentDirectory() + "\\Xml\\CarTrackCombo.xml");
+            return Xml_deserializer.Xml.Deserialize<SavedSetups>(Directory.GetCurrentDirectory() + "\\Xml\\CarTrackCombo.xml");
         }
     }
 }

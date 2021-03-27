@@ -5,9 +5,6 @@ using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
-using Fuel_calculator.Xml;
-using Fuel_calculator.Xml.Fuel_calculator.Xml;
 
 namespace Fuel_calculator
 {

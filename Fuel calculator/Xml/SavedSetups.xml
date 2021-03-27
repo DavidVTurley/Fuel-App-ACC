@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<SavedCombinations>
+<SavedSetups>
   <CarTrackCombo>
     <Car>
       <Id>0</Id>
@@ -15,4 +15,4 @@
 
     <FuelPerLap>1.2</FuelPerLap>
   </CarTrackCombo>
-</SavedCombinations>
+</SavedSetups>
