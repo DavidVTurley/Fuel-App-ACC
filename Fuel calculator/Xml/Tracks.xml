@@ -1,1 +1,79 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Tracks>
+  <Track>
+    <Id>0</Id>
+    <Name>Monza</Name>
+  </Track>
+  <Track>
+    <Id>1</Id>
+    <Name>Brands Hatch</Name>
+  </Track>
+  <Track>
+    <Id>2</Id>
+    <Name>Silverstone</Name>
+  </Track>
+  <Track>
+    <Id>3</Id>
+    <Name>Paul Ricard</Name>
+  </Track>
+  <Track>
+    <Id>4</Id>
+    <Name>Misano</Name>
+  </Track>
+  <Track>
+    <Id>5</Id>
+    <Name>Zandvoort</Name>
+  </Track>
+  <Track>
+    <Id>6</Id>
+    <Name>Spa Francorchamps</Name>
+  </Track>
+  <Track>
+    <Id>7</Id>
+    <Name>Nürburgring</Name>
+  </Track>
+  <Track>
+    <Id>8</Id>
+    <Name>Hungaroring</Name>
+  </Track>
+  <Track>
+    <Id>9</Id>
+    <Name>Barcalona</Name>
+  </Track>
+  <Track>
+    <Id>10</Id>
+    <Name>Zolder</Name>
+  </Track>
+  <Track>
+    <Id>11</Id>
+    <Name>Mount Panorama</Name>
+  </Track>
+  <Track>
+    <Id>12</Id>
+    <Name>Laguna Seca</Name>
+  </Track>
+  <Track>
+    <Id>13</Id>
+    <Name>Suzuka</Name>
+  </Track>
+  <Track>
+    <Id>14</Id>
+    <Name>Kyalami</Name>
+  </Track>
+  <Track>
+    <Id>15</Id>
+    <Name>Imola</Name>
+  </Track>
+  <Track>
+    <Id>16</Id>
+    <Name>Donington Park Circuit</Name>
+  </Track>
+  <Track>
+    <Id>17</Id>
+    <Name>Oulton Park Circuit</Name>
+  </Track>
+  <Track>
+    <Id>18</Id>
+    <Name>Snetterton Circuit</Name>
+  </Track>
+</Tracks>

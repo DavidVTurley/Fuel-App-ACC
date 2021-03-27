@@ -1,10 +1,18 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Car_Track_Combo>
-  <Car>
-    [XmlElement("Name")] public Int32 Name;
-    [XmlElement("Max_fuel")] public Int32 MaxFuel;
-  </Car>
-  <track>
-    <Name></Name>
-  </track>
-</Car_Track_Combo>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<SavedCombinations>
+  <CarTrackCombo>
+    <Car>
+      <Id>0</Id>
+      <Name>Bmw</Name>
+      <FuelPerLap></FuelPerLap>
+      <MaxFuel></MaxFuel>
+    </Car>
+    <Track>
+      <Id>0</Id>
+      <Name>Silverstone</Name>
+    </Track>
+
+    <FuelPerLap>1.2</FuelPerLap>
+  </CarTrackCombo>
+</SavedCombinations>

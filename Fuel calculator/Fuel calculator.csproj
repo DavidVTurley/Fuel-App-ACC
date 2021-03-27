@@ -124,13 +124,19 @@
     <Resource Include="Logo.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Xml\Cars.xml" />
+    <Resource Include="Xml\Cars.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Xml\Tracks.xml" />
+    <AdditionalFiles Include="Xml\Tracks.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AdditionalFiles>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Xml\CarTrackCombo.xml" />
+    <AdditionalFiles Include="Xml\CarTrackCombo.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AdditionalFiles>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Xml deserializer\Xml deserializer\Xml deserializer.csproj">
