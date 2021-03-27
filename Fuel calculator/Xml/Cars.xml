@@ -1,1 +1,188 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Cars>
+  <Car>
+    <Id>0</Id>
+    <Name>AMR V12 Vantage GT3</Name>
+    <MaxFuel>132</MaxFuel>
+  </Car>
+  <Car>
+    <Id>1</Id>
+    <Name>AMR V8 Vantage GT3</Name>
+    <MaxFuel>120</MaxFuel>
+  </Car>
+  <Car>
+    <Id>2</Id>
+    <Name>Audi R8 LMS</Name>
+    <MaxFuel>120</MaxFuel>
+  </Car>
+  <Car>
+    <Id>3</Id>
+    <Name>Audi R8 LMS Evo</Name>
+    <MaxFuel>120</MaxFuel>
+  </Car>
+  <Car>
+    <Id>4</Id>
+    <Name>Bentley Continental GT3 2015</Name>
+    <MaxFuel>132</MaxFuel>
+  </Car>
+  <Car>
+    <Id>5</Id>
+    <Name>Bentley Continental GT3 2018</Name>
+    <MaxFuel>132</MaxFuel>
+  </Car>
+  <Car>
+    <Id>6</Id>
+    <Name>BMW M6 GT3</Name>
+    <MaxFuel>125</MaxFuel>
+  </Car>
+  <Car>
+    <Id>7</Id>
+    <Name>Emil Frey Jaguar G3</Name>
+    <MaxFuel>119</MaxFuel>
+  </Car>
+  <Car>
+    <Id>8</Id>
+    <Name>Ferrari 488 GT3</Name>
+    <MaxFuel>110</MaxFuel>
+  </Car>
+  <Car>
+    <Id>9</Id>
+    <Name>Ferrari 488 GT3 Evo</Name>
+    <MaxFuel>110</MaxFuel>
+  </Car>
+  <Car>
+    <Id>10</Id>
+    <Name>Honda NSX GT3</Name>
+    <MaxFuel>120</MaxFuel>
+  </Car>
+  <Car>
+    <Id>11</Id>
+    <Name>Honda NSX GT3 Evo</Name>
+    <MaxFuel>120</MaxFuel>
+  </Car>
+  <Car>
+    <Id>12</Id>
+    <Name>Lamborghini Hurcan GT3</Name>
+    <MaxFuel>120</MaxFuel>
+  </Car>
+  <Car>
+    <Id>13</Id>
+    <Name>Lamborghini Huracan GT3 Evo</Name>
+    <MaxFuel>120</MaxFuel>
+  </Car>
+  <Car>
+    <Id>14</Id>
+    <Name>Lamborghini Huracan ST</Name>
+    <MaxFuel>120</MaxFuel>
+  </Car>
+  <Car>
+    <Id>15</Id>
+    <Name>Lexus RC GT3</Name>
+    <MaxFuel>120</MaxFuel>
+  </Car>
+  <Car>
+    <Id>16</Id>
+    <Name>McLarren 650S GT3</Name>
+    <MaxFuel>125</MaxFuel>
+  </Car>
+  <Car>
+    <Id>17</Id>
+    <Name>McLarren 720S GT3</Name>
+    <MaxFuel>125</MaxFuel>
+  </Car>
+  <Car>
+    <Id>18</Id>
+    <Name>Mercedes AMG GT3</Name>
+    <MaxFuel>120</MaxFuel>
+  </Car>
+  <Car>
+    <Id>19</Id>
+    <Name>Mercedes AMG GT3 2020</Name>
+    <MaxFuel>120</MaxFuel>
+  </Car>
+  <Car>
+    <Id>20</Id>
+    <Name>Nissan GT-R Nismo GT3 2015</Name>
+    <MaxFuel>132</MaxFuel>
+  </Car>
+  <Car>
+    <Id>21</Id>
+    <Name>Nissan GT-R Nismo GT3 2018</Name>
+    <MaxFuel>132</MaxFuel>
+  </Car>
+  <Car>
+    <Id>22</Id>
+    <Name>Porsche 991 GT3-R</Name>
+    <MaxFuel>120</MaxFuel>
+  </Car>
+  <Car>
+    <Id>23</Id>
+    <Name>Porsche 991 II GT3 R</Name>
+    <MaxFuel>120</MaxFuel>
+  </Car>
+  <Car>
+    <Id>24</Id>
+    <Name>Porsche 991 GT3 Cup</Name>
+    <MaxFuel>100</MaxFuel>
+  </Car>
+  <Car>
+    <Id>25</Id>
+    <Name>Reiter Engineering R-EX GT3</Name>
+    <MaxFuel>130</MaxFuel>
+  </Car>
+  <Car>
+    <Id>26</Id>
+    <Name>Alpine A110 GT4</Name>
+    <MaxFuel>95</MaxFuel>
+  </Car>
+  <Car>
+    <Id>27</Id>
+    <Name>Aston Martin Vantage GT4</Name>
+    <MaxFuel>120</MaxFuel>
+  </Car>
+  <Car>
+    <Id>28</Id>
+    <Name>Audi R8 LMS GT4</Name>
+    <MaxFuel>120</MaxFuel>
+  </Car>
+  <Car>
+    <Id>29</Id>
+    <Name>BMW M4 GT4</Name>
+    <MaxFuel>127</MaxFuel>
+  </Car>
+  <Car>
+    <Id>30</Id>
+    <Name>Chevrolet Camaro GT4R</Name>
+    <MaxFuel>120</MaxFuel>
+  </Car>
+  <Car>
+    <Id>31</Id>
+    <Name>Ginetta G55 GT4</Name>
+    <MaxFuel>107</MaxFuel>
+  </Car>
+  <Car>
+    <Id>32</Id>
+    <Name>KTM X-Bow GT4</Name>
+    <MaxFuel>120</MaxFuel>
+  </Car>
+  <Car>
+    <Id>33</Id>
+    <Name>Maserati MC GT4</Name>
+    <MaxFuel>110</MaxFuel>
+  </Car>
+  <Car>
+    <Id>34</Id>
+    <Name>Mclaren 570S GT4</Name>
+    <MaxFuel>110</MaxFuel>
+  </Car>
+  <Car>
+    <Id>35</Id>
+    <Name>Mercedes AMG GT4</Name>
+    <MaxFuel>120</MaxFuel>
+  </Car>
+  <Car>
+    <Id>36</Id>
+    <Name>Porsche 718 Cayman GT4 Clubsport</Name>
+    <MaxFuel>115</MaxFuel>
+  </Car>
+</Cars>
