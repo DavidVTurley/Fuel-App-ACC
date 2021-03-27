@@ -67,6 +67,9 @@
       <DependentUpon>NumericInput.xaml</DependentUpon>
     </Compile>
     <Compile Include="Logger.cs" />
+    <Compile Include="MainWindow - Copy.xaml.cs">
+      <DependentUpon>MainWindow - Copy.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Xml\Objects\Car.cs" />
     <Compile Include="Xml\Objects\OldSettings.cs" />
     <Compile Include="Xml\Objects\Settings.cs" />
@@ -75,6 +78,10 @@
     <Page Include="Controls\NumericInput.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow - Copy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
