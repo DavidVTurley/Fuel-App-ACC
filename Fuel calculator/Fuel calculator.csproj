@@ -128,9 +128,9 @@
     <Resource Include="Logo.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Xml\Cars.xml">
+    <AdditionalFiles Include="Xml\Cars.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
+    </AdditionalFiles>
   </ItemGroup>
   <ItemGroup>
     <AdditionalFiles Include="Xml\Tracks.xml">
@@ -148,5 +148,6 @@
       <Name>Xml deserializer</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

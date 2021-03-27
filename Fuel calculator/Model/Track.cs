@@ -18,7 +18,7 @@ namespace Fuel_calculator.Xml.Objects
 
         public static Tracks LoadTracksFromXml()
         {
-            return Xml_deserializer.Xml.Deserialize<Tracks>(Directory.GetCurrentDirectory() + "\\Xml\\Tracks.xml");
+            return Xml_deserializer.Xml.Deserialize<Tracks>(Directory.GetCurrentDirectory() + "..\\Xml\\Tracks.xml");
         }
     }
 }

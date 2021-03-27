@@ -14,5 +14,7 @@
     </Track>
 
     <FuelPerLap>1.2</FuelPerLap>
+    <AverageLapTimeInSeconds>120</AverageLapTimeInSeconds>
+    <TotalRaceTimeInMinutes>65</TotalRaceTimeInMinutes>
   </CarTrackCombo>
 </SavedSetups>
