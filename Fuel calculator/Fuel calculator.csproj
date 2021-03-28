@@ -67,20 +67,23 @@
       <DependentUpon>NumericInput.xaml</DependentUpon>
     </Compile>
     <Compile Include="Logger.cs" />
-    <Compile Include="MainWindow - Copy.xaml.cs">
-      <DependentUpon>MainWindow - Copy.xaml</DependentUpon>
+    <Compile Include="View\StandardView.xaml.cs">
+      <DependentUpon>StandardView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Xml\Objects\Car.cs" />
-    <Compile Include="Xml\Objects\Track.cs" />
-    <Compile Include="Xml\Objects\SavedSetups.cs" />
+    <None Include="MainWindow - Copy.xaml.cs">
+      <DependentUpon>MainWindow - Copy.xaml</DependentUpon>
+    </None>
+    <Compile Include="Model\Car.cs" />
+    <Compile Include="Model\Track.cs" />
+    <Compile Include="Model\SavedSetups.cs" />
     <Page Include="Controls\NumericInput.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow - Copy.xaml">
+    <None Include="MainWindow - Copy.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
+    </None>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -93,6 +96,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\StandardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\Annotations.cs" />
