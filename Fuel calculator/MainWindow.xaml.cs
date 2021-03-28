@@ -1,4 +1,8 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
+using System.Windows.Controls;
+using Fuel_calculator.View;
+using Fuel_calculator.Xml.Objects;
 
 namespace Fuel_calculator
 {
@@ -10,6 +14,17 @@ namespace Fuel_calculator
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void ManualMenuButton_OnClick(Object sender, RoutedEventArgs e)
+        {
+            SwitchView(new StandardView());
+        }
+
+        private void SwitchView(Control control)
+        {
+            Panel.Children.Clear();
+            Panel.Children.Add(control);
         }
     }
 }

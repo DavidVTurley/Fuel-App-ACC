@@ -3,10 +3,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:view="clr-namespace:Fuel_calculator.View"
         mc:Ignorable="d"
         Title="Fuel Calculator" Height="450" Width="760" SizeToContent="Manual"
         WindowStyle="ThreeDBorderWindow" Icon="Logo.png" Background="LightGray">
-    <Viewbox Stretch="Uniform">
-        
-    </Viewbox>
+    <DockPanel>
+        <ToolBarTray DockPanel.Dock="Top">
+            <ToolBar>
+                <Button Content="Manual" Click="ManualMenuButton_OnClick"/>
+            </ToolBar>
+        </ToolBarTray>
+        <StackPanel Name="Panel">
+            <view:StandardView></view:StandardView>
+        </StackPanel>
+    </DockPanel>
 </Window>
