@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Tracks>
+<ListOfTracks>
   <Track>
     <Id>0</Id>
     <Name>Monza</Name>
@@ -76,4 +76,4 @@
     <Id>18</Id>
     <Name>Snetterton Circuit</Name>
   </Track>
-</Tracks>
+</ListOfTracks>

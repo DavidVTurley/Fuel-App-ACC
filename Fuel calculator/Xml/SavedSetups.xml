@@ -1,17 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-
 <SavedSetups>
   <CarTrackCombo>
-    <Car>
-      <Id>0</Id>
-      <Name>Bmw</Name>
-      <FuelPerLap></FuelPerLap>
-      <MaxFuel></MaxFuel>
-    </Car>
-    <Track>
-      <Id>0</Id>
-      <Name>Silverstone</Name>
-    </Track>
+    <CarId>0</CarId>
+    <TrackId>0</TrackId>
+
+    <FuelPerLap>1.2</FuelPerLap>
+    <AverageLapTimeInSeconds>120</AverageLapTimeInSeconds>
+    <TotalRaceTimeInMinutes>65</TotalRaceTimeInMinutes>
+  </CarTrackCombo>
+  <CarTrackCombo>
+    <CarId>1</CarId>
+    <TrackId>1</TrackId>
 
     <FuelPerLap>1.2</FuelPerLap>
     <AverageLapTimeInSeconds>120</AverageLapTimeInSeconds>

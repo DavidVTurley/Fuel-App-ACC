@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Cars>
+<ListOfCars>
   <Car>
     <Id>0</Id>
     <Name>AMR V12 Vantage GT3</Name>
@@ -185,4 +185,4 @@
     <Name>Porsche 718 Cayman GT4 Clubsport</Name>
     <MaxFuel>115</MaxFuel>
   </Car>
-</Cars>
+</ListOfCars>
